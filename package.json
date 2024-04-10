@@ -24,7 +24,7 @@
     "test:types": "tsd"
   },
   "dependencies": {
-    "@percy/sdk-utils": "git+https://github.com:ObieCRE/percy-sdk-utils.git#e1b3723a74798502d44198833a691ff03b684faa"
+    "@percy/sdk-utils": "git+https://github.com/ObieCRE/percy-sdk-utils.git#e1b3723a74798502d44198833a691ff03b684faa"
   },
   "peerDependencies": {
     "cypress": ">=3"

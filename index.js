@@ -58,6 +58,10 @@ Cypress.Commands.add('percySnapshot', (name, options) => {
     return cy.document({ log: false }).then({ timeout: CY_TIMEOUT }, dom => {
       let domSnapshot = window.PercyDOM.serialize({ ...options, dom });
 
+      log.error(`Taking snapshot "${name}"`);
+      log.error("Cypress Config", Cypress.config());
+      log.error("percyThrowErrorOnFailure", Cypress.config('percyThrowErrorOnFailure'));
+
       // Post the DOM snapshot to Percy
       return utils.postSnapshot({
         ...options,

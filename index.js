@@ -59,8 +59,10 @@ Cypress.Commands.add('percySnapshot', (name, options) => {
       let domSnapshot = window.PercyDOM.serialize({ ...options, dom });
 
       log.error(`Taking snapshot "${name}"`);
-      log.error("Cypress Config", Cypress.config());
-      log.error("percyThrowErrorOnFailure", Cypress.config('percyThrowErrorOnFailure'));
+      log.error("Cypress Config")
+      log.error(Cypress.config());
+      log.error("percyThrowErrorOnFailure");
+      log.error(Cypress.config('percyThrowErrorOnFailure'));
 
       // Post the DOM snapshot to Percy
       return utils.postSnapshot({
@@ -77,9 +79,7 @@ Cypress.Commands.add('percySnapshot', (name, options) => {
         // Handle errors
         log.error(`Could not take DOM snapshot "${name}"`);
         log.error(error);
-        if (Cypress.config('percyThrowErrorOnFailure')) {
-          throw error;
-        }
+        throw error;
       });
     });
   });
